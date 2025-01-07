@@ -1,5 +1,5 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+import puppeteer from 'puppeteer';
+import fs from 'fs';
 
 async function getTitleValue(page) {
     await page.waitForSelector('span[title]', { visible: true });
@@ -47,11 +47,11 @@ async function run() {
             await page.waitForSelector('span[title]', { visible: true });
             const newTitleValue = await getTitleValue(page);
             console.log('Nouvelle valeur du titre:', newTitleValue);
-            fs.writeFileSync('titleValue.txt', newTitleValue);
+            fs.writeFileSync('src/titleValue.txt', newTitleValue);
         } catch (error) {
             console.error('Error reloading page:', error);
         }
-    }, 15000); // 60000 millisecondes = 1 minute
+    }, 5000); // 60000 millisecondes = 1 minute
 }
 
 run();

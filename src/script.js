@@ -1,3 +1,4 @@
+// src/script.js
 async function fetchTitleValue() {
     const response = await fetch('src/titleValue.txt');
     const titleValue = await response.text();
@@ -22,7 +23,7 @@ function showPopup(message, type) {
     pop.innerHTML = `<div class="popup ${type}">${message}</div>`;
     setTimeout(() => {
         pop.innerHTML = ''; // Efface après 3 secondes
-    }, 3000);
+    }, 1000);
 }
 
 // Vérifie les changements en lisant le fichier popupState.txt
@@ -32,7 +33,7 @@ async function checkPopupState() {
         const data = await response.text();
         const [type, message] = data.split('|');
 
-        if (type && message && type !== 'no-change') {
+        if (type && message && type !== ' ') {
             showPopup(message, type); // Affiche le popup
         }
     } catch (error) {
@@ -52,5 +53,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         await checkPopupState(); // Vérifie les changements
     }, 5000); // Toutes les 5 secondes
 });
- 
 
+// Charger les scripts supplémentaires
+async function loadScripts() {
+    await import('/src/popup.js');
+}
+
+loadScripts();

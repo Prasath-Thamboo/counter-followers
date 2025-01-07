@@ -1,4 +1,5 @@
-const fs = require('fs');
+// src/popup.js
+import fs from 'fs';
 
 // Variable pour stocker la valeur précédente
 let previousValue = null;
@@ -34,7 +35,7 @@ async function checkForChanges() {
                 message = `Un des notres nous a quitté ..`;
                 type = 'decrease';
             } else {
-                message = 'no-change';
+                message = ' ';
                 type = 'stable';
             }
 
@@ -48,4 +49,4 @@ async function checkForChanges() {
 }
 
 // Vérifie toutes les 5 secondes
-setInterval(checkForChanges, 5000);
+setInterval(checkForChanges, 4000);
