@@ -29,10 +29,10 @@ async function checkForChanges() {
             let type = '';
 
             if (newValue > previousValue) {
-                message = `Il y a un nouveau membre`;
+                message = `Il y a du nouveau`;
                 type = 'increase';
             } else if (newValue < previousValue) {
-                message = `Un des notres nous a quitté ..`;
+                message = `Qui nous a quitté ?`;
                 type = 'decrease';
             } else {
                 message = ' ';

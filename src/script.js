@@ -23,7 +23,7 @@ function showPopup(message, type) {
     pop.innerHTML = `<div class="popup ${type}">${message}</div>`;
     setTimeout(() => {
         pop.innerHTML = ''; // Efface après 3 secondes
-    }, 1000);
+    }, 3000);
 }
 
 // Vérifie les changements en lisant le fichier popupState.txt
@@ -33,7 +33,7 @@ async function checkPopupState() {
         const data = await response.text();
         const [type, message] = data.split('|');
 
-        if (type && message && type !== ' ') {
+        if (type && message && type !== ' ' && type !== 'stable') {
             showPopup(message, type); // Affiche le popup
         }
     } catch (error) {
