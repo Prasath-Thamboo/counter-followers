@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer';
 import fs from 'fs';
 
+
 async function getTitleValue(page) {
     await page.waitForSelector('span[title]', { visible: true });
     const titleValue = await page.$eval(
@@ -22,19 +23,19 @@ async function run() {
 
     await page.click('.x19onx9a > div > button');
 
-    await page.type("[name=username]", "prasth.dev", { delay: 200 });
+    await page.type("[name=username]", "dende545", { delay: 200 });
     await page.type("[name=password]", "Adsayan95", { delay: 200 });
     await page.click('button[type=submit]');
 
     await page.waitForSelector('div[role]', { visible: true });
     await page.click('div[role]');
-    await page.goto('https://www.instagram.com/shakira');
+    await page.goto('https://www.instagram.com/shakira/');
 
     const titleValue = await getTitleValue(page);
     console.log('Valeur du titre:', titleValue);
 
     // Sauvegarder la valeur du titre dans un fichier
-    fs.writeFileSync('titleValue.txt', titleValue);
+    fs.writeFileSync('src/titleValue.txt', titleValue);
 
     // Rafraîchir la page toutes les minutes
     setInterval(async () => {
@@ -51,7 +52,7 @@ async function run() {
         } catch (error) {
             console.error('Error reloading page:', error);
         }
-    }, 5000); // 60000 millisecondes = 1 minute
+    }, 10000); // 08 secondes
 }
 
 run();

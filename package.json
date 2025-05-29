@@ -12,6 +12,9 @@
     "vite": "^6.0.5"
   },
   "dependencies": {
-    "puppeteer": "^23.11.1"
+    "dotenv": "^16.4.7",
+    "puppeteer": "^23.11.1",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
   }
 }

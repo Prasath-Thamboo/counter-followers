@@ -49,4 +49,4 @@ async function checkForChanges() {
 }
 
 // Vérifie toutes les 5 secondes
-setInterval(checkForChanges, 4000);
+setInterval(checkForChanges, 5000);
